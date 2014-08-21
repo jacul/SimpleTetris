@@ -1,0 +1,508 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F742BB9919A4630600B697A3 /* STBrickNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F742BB9819A4630600B697A3 /* STBrickNode.m */; };
+		F742BB9A19A4630600B697A3 /* STBrickNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F742BB9819A4630600B697A3 /* STBrickNode.m */; };
+		F76DB25419A3120500E55019 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76DB25319A3120500E55019 /* Foundation.framework */; };
+		F76DB25619A3120500E55019 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76DB25519A3120500E55019 /* CoreGraphics.framework */; };
+		F76DB25819A3120500E55019 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76DB25719A3120500E55019 /* UIKit.framework */; };
+		F76DB25A19A3120500E55019 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76DB25919A3120500E55019 /* SpriteKit.framework */; };
+		F76DB26019A3120500E55019 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F76DB25E19A3120500E55019 /* InfoPlist.strings */; };
+		F76DB26219A3120500E55019 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F76DB26119A3120500E55019 /* main.m */; };
+		F76DB26619A3120500E55019 /* STAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F76DB26519A3120500E55019 /* STAppDelegate.m */; };
+		F76DB26919A3120500E55019 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F76DB26719A3120500E55019 /* Main_iPhone.storyboard */; };
+		F76DB26C19A3120500E55019 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F76DB26A19A3120500E55019 /* Main_iPad.storyboard */; };
+		F76DB26F19A3120500E55019 /* STViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76DB26E19A3120500E55019 /* STViewController.m */; };
+		F76DB27219A3120500E55019 /* STGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F76DB27119A3120500E55019 /* STGameScene.m */; };
+		F76DB27619A3120500E55019 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F76DB27519A3120500E55019 /* Images.xcassets */; };
+		F76DB27D19A3120500E55019 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76DB27C19A3120500E55019 /* XCTest.framework */; };
+		F76DB27E19A3120500E55019 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76DB25319A3120500E55019 /* Foundation.framework */; };
+		F76DB27F19A3120500E55019 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76DB25719A3120500E55019 /* UIKit.framework */; };
+		F76DB28719A3120500E55019 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F76DB28519A3120500E55019 /* InfoPlist.strings */; };
+		F76DB28919A3120500E55019 /* SimpleTetrisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76DB28819A3120500E55019 /* SimpleTetrisTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F76DB28019A3120500E55019 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F76DB24819A3120500E55019 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F76DB24F19A3120500E55019;
+			remoteInfo = SimpleTetris;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F742BB9719A4630600B697A3 /* STBrickNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBrickNode.h; sourceTree = "<group>"; };
+		F742BB9819A4630600B697A3 /* STBrickNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBrickNode.m; sourceTree = "<group>"; };
+		F76DB25019A3120500E55019 /* SimpleTetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F76DB25319A3120500E55019 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F76DB25519A3120500E55019 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F76DB25719A3120500E55019 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F76DB25919A3120500E55019 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		F76DB25D19A3120500E55019 /* SimpleTetris-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SimpleTetris-Info.plist"; sourceTree = "<group>"; };
+		F76DB25F19A3120500E55019 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F76DB26119A3120500E55019 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F76DB26319A3120500E55019 /* SimpleTetris-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleTetris-Prefix.pch"; sourceTree = "<group>"; };
+		F76DB26419A3120500E55019 /* STAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STAppDelegate.h; sourceTree = "<group>"; };
+		F76DB26519A3120500E55019 /* STAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STAppDelegate.m; sourceTree = "<group>"; };
+		F76DB26819A3120500E55019 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		F76DB26B19A3120500E55019 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		F76DB26D19A3120500E55019 /* STViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STViewController.h; sourceTree = "<group>"; };
+		F76DB26E19A3120500E55019 /* STViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STViewController.m; sourceTree = "<group>"; };
+		F76DB27019A3120500E55019 /* STGameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STGameScene.h; sourceTree = "<group>"; };
+		F76DB27119A3120500E55019 /* STGameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STGameScene.m; sourceTree = "<group>"; };
+		F76DB27519A3120500E55019 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F76DB27B19A3120500E55019 /* SimpleTetrisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleTetrisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F76DB27C19A3120500E55019 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F76DB28419A3120500E55019 /* SimpleTetrisTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SimpleTetrisTests-Info.plist"; sourceTree = "<group>"; };
+		F76DB28619A3120500E55019 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F76DB28819A3120500E55019 /* SimpleTetrisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleTetrisTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F76DB24D19A3120500E55019 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F76DB25619A3120500E55019 /* CoreGraphics.framework in Frameworks */,
+				F76DB25819A3120500E55019 /* UIKit.framework in Frameworks */,
+				F76DB25A19A3120500E55019 /* SpriteKit.framework in Frameworks */,
+				F76DB25419A3120500E55019 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F76DB27819A3120500E55019 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F76DB27D19A3120500E55019 /* XCTest.framework in Frameworks */,
+				F76DB27F19A3120500E55019 /* UIKit.framework in Frameworks */,
+				F76DB27E19A3120500E55019 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F76DB24719A3120500E55019 = {
+			isa = PBXGroup;
+			children = (
+				F76DB25B19A3120500E55019 /* SimpleTetris */,
+				F76DB28219A3120500E55019 /* SimpleTetrisTests */,
+				F76DB25219A3120500E55019 /* Frameworks */,
+				F76DB25119A3120500E55019 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F76DB25119A3120500E55019 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F76DB25019A3120500E55019 /* SimpleTetris.app */,
+				F76DB27B19A3120500E55019 /* SimpleTetrisTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F76DB25219A3120500E55019 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F76DB25319A3120500E55019 /* Foundation.framework */,
+				F76DB25519A3120500E55019 /* CoreGraphics.framework */,
+				F76DB25719A3120500E55019 /* UIKit.framework */,
+				F76DB25919A3120500E55019 /* SpriteKit.framework */,
+				F76DB27C19A3120500E55019 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F76DB25B19A3120500E55019 /* SimpleTetris */ = {
+			isa = PBXGroup;
+			children = (
+				F76DB26419A3120500E55019 /* STAppDelegate.h */,
+				F76DB26519A3120500E55019 /* STAppDelegate.m */,
+				F76DB26719A3120500E55019 /* Main_iPhone.storyboard */,
+				F76DB26A19A3120500E55019 /* Main_iPad.storyboard */,
+				F76DB26D19A3120500E55019 /* STViewController.h */,
+				F76DB26E19A3120500E55019 /* STViewController.m */,
+				F76DB27019A3120500E55019 /* STGameScene.h */,
+				F76DB27119A3120500E55019 /* STGameScene.m */,
+				F742BB9719A4630600B697A3 /* STBrickNode.h */,
+				F742BB9819A4630600B697A3 /* STBrickNode.m */,
+				F76DB27519A3120500E55019 /* Images.xcassets */,
+				F76DB25C19A3120500E55019 /* Supporting Files */,
+			);
+			path = SimpleTetris;
+			sourceTree = "<group>";
+		};
+		F76DB25C19A3120500E55019 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F76DB25D19A3120500E55019 /* SimpleTetris-Info.plist */,
+				F76DB25E19A3120500E55019 /* InfoPlist.strings */,
+				F76DB26119A3120500E55019 /* main.m */,
+				F76DB26319A3120500E55019 /* SimpleTetris-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F76DB28219A3120500E55019 /* SimpleTetrisTests */ = {
+			isa = PBXGroup;
+			children = (
+				F76DB28819A3120500E55019 /* SimpleTetrisTests.m */,
+				F76DB28319A3120500E55019 /* Supporting Files */,
+			);
+			path = SimpleTetrisTests;
+			sourceTree = "<group>";
+		};
+		F76DB28319A3120500E55019 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F76DB28419A3120500E55019 /* SimpleTetrisTests-Info.plist */,
+				F76DB28519A3120500E55019 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F76DB24F19A3120500E55019 /* SimpleTetris */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F76DB28C19A3120500E55019 /* Build configuration list for PBXNativeTarget "SimpleTetris" */;
+			buildPhases = (
+				F76DB24C19A3120500E55019 /* Sources */,
+				F76DB24D19A3120500E55019 /* Frameworks */,
+				F76DB24E19A3120500E55019 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleTetris;
+			productName = SimpleTetris;
+			productReference = F76DB25019A3120500E55019 /* SimpleTetris.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F76DB27A19A3120500E55019 /* SimpleTetrisTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F76DB28F19A3120500E55019 /* Build configuration list for PBXNativeTarget "SimpleTetrisTests" */;
+			buildPhases = (
+				F76DB27719A3120500E55019 /* Sources */,
+				F76DB27819A3120500E55019 /* Frameworks */,
+				F76DB27919A3120500E55019 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F76DB28119A3120500E55019 /* PBXTargetDependency */,
+			);
+			name = SimpleTetrisTests;
+			productName = SimpleTetrisTests;
+			productReference = F76DB27B19A3120500E55019 /* SimpleTetrisTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F76DB24819A3120500E55019 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ST;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = jacul;
+				TargetAttributes = {
+					F76DB27A19A3120500E55019 = {
+						TestTargetID = F76DB24F19A3120500E55019;
+					};
+				};
+			};
+			buildConfigurationList = F76DB24B19A3120500E55019 /* Build configuration list for PBXProject "SimpleTetris" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F76DB24719A3120500E55019;
+			productRefGroup = F76DB25119A3120500E55019 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F76DB24F19A3120500E55019 /* SimpleTetris */,
+				F76DB27A19A3120500E55019 /* SimpleTetrisTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F76DB24E19A3120500E55019 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F76DB27619A3120500E55019 /* Images.xcassets in Resources */,
+				F76DB26C19A3120500E55019 /* Main_iPad.storyboard in Resources */,
+				F76DB26919A3120500E55019 /* Main_iPhone.storyboard in Resources */,
+				F76DB26019A3120500E55019 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F76DB27919A3120500E55019 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F76DB28719A3120500E55019 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F76DB24C19A3120500E55019 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F742BB9919A4630600B697A3 /* STBrickNode.m in Sources */,
+				F76DB26F19A3120500E55019 /* STViewController.m in Sources */,
+				F76DB27219A3120500E55019 /* STGameScene.m in Sources */,
+				F76DB26219A3120500E55019 /* main.m in Sources */,
+				F76DB26619A3120500E55019 /* STAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F76DB27719A3120500E55019 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F742BB9A19A4630600B697A3 /* STBrickNode.m in Sources */,
+				F76DB28919A3120500E55019 /* SimpleTetrisTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F76DB28119A3120500E55019 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F76DB24F19A3120500E55019 /* SimpleTetris */;
+			targetProxy = F76DB28019A3120500E55019 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F76DB25E19A3120500E55019 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F76DB25F19A3120500E55019 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F76DB26719A3120500E55019 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F76DB26819A3120500E55019 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		F76DB26A19A3120500E55019 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F76DB26B19A3120500E55019 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		F76DB28519A3120500E55019 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F76DB28619A3120500E55019 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F76DB28A19A3120500E55019 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F76DB28B19A3120500E55019 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F76DB28D19A3120500E55019 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SimpleTetris/SimpleTetris-Prefix.pch";
+				INFOPLIST_FILE = "SimpleTetris/SimpleTetris-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F76DB28E19A3120500E55019 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SimpleTetris/SimpleTetris-Prefix.pch";
+				INFOPLIST_FILE = "SimpleTetris/SimpleTetris-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F76DB29019A3120500E55019 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SimpleTetris.app/SimpleTetris";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SimpleTetris/SimpleTetris-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SimpleTetrisTests/SimpleTetrisTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F76DB29119A3120500E55019 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SimpleTetris.app/SimpleTetris";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SimpleTetris/SimpleTetris-Prefix.pch";
+				INFOPLIST_FILE = "SimpleTetrisTests/SimpleTetrisTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F76DB24B19A3120500E55019 /* Build configuration list for PBXProject "SimpleTetris" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F76DB28A19A3120500E55019 /* Debug */,
+				F76DB28B19A3120500E55019 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F76DB28C19A3120500E55019 /* Build configuration list for PBXNativeTarget "SimpleTetris" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F76DB28D19A3120500E55019 /* Debug */,
+				F76DB28E19A3120500E55019 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F76DB28F19A3120500E55019 /* Build configuration list for PBXNativeTarget "SimpleTetrisTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F76DB29019A3120500E55019 /* Debug */,
+				F76DB29119A3120500E55019 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F76DB24819A3120500E55019 /* Project object */;
+}

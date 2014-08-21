@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3DEC2E25-1ECE-4290-A250-235E0072A72C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SimpleTetris</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BB593E4D-D55E-4784-BE7D-63BD6E1B0E49</key>
+		<string>https://github.com/jacul/SimpleTetris.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SimpleTetris.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BB593E4D-D55E-4784-BE7D-63BD6E1B0E49</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jacul/SimpleTetris.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BB593E4D-D55E-4784-BE7D-63BD6E1B0E49</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BB593E4D-D55E-4784-BE7D-63BD6E1B0E49</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SimpleTetris</string>
+		</dict>
+	</array>
+</dict>
+</plist>
