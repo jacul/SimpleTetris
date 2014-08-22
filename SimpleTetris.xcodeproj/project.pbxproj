@@ -25,7 +25,7 @@
 		F76DB27E19A3120500E55019 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76DB25319A3120500E55019 /* Foundation.framework */; };
 		F76DB27F19A3120500E55019 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76DB25719A3120500E55019 /* UIKit.framework */; };
 		F76DB28719A3120500E55019 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F76DB28519A3120500E55019 /* InfoPlist.strings */; };
-		F76DB28919A3120500E55019 /* SimpleTetrisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76DB28819A3120500E55019 /* SimpleTetrisTests.m */; };
+		F76DB28919A3120500E55019 /* BrickTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76DB28819A3120500E55019 /* BrickTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,7 @@
 		F76DB27C19A3120500E55019 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F76DB28419A3120500E55019 /* SimpleTetrisTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SimpleTetrisTests-Info.plist"; sourceTree = "<group>"; };
 		F76DB28619A3120500E55019 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F76DB28819A3120500E55019 /* SimpleTetrisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleTetrisTests.m; sourceTree = "<group>"; };
+		F76DB28819A3120500E55019 /* BrickTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrickTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +155,7 @@
 		F76DB28219A3120500E55019 /* SimpleTetrisTests */ = {
 			isa = PBXGroup;
 			children = (
-				F76DB28819A3120500E55019 /* SimpleTetrisTests.m */,
+				F76DB28819A3120500E55019 /* BrickTests.m */,
 				F76DB28319A3120500E55019 /* Supporting Files */,
 			);
 			path = SimpleTetrisTests;
@@ -282,7 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F742BB9A19A4630600B697A3 /* STBrickNode.m in Sources */,
-				F76DB28919A3120500E55019 /* SimpleTetrisTests.m in Sources */,
+				F76DB28919A3120500E55019 /* BrickTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

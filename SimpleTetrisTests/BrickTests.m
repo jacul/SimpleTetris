@@ -7,12 +7,13 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "STBrickNode.h"
 
-@interface SimpleTetrisTests : XCTestCase
+@interface BrickTests : XCTestCase
 
 @end
 
-@implementation SimpleTetrisTests
+@implementation BrickTests
 
 - (void)setUp
 {
@@ -26,9 +27,41 @@
     [super tearDown];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+-(void)testCreateLBrick{
+    STBrickNode* brick = [STBrickNode createLBrick];
+    XCTAssertEqualObjects(brick.description, @"\n0000\n0100\n0100\n0110\n", @"Create L");
+}
+
+-(void)testCreateDBrick{
+    STBrickNode* brick = [STBrickNode createDBrick];
+    XCTAssertEqualObjects(brick.description, @"\n0000\n0110\n0110\n0000\n", @"Create D");
+}
+
+-(void)testCreateSBrick{
+    STBrickNode* brick = [STBrickNode createSBrick];
+    XCTAssertEqualObjects(brick.description, @"\n0000\n0100\n0110\n0010\n", @"Create S");
+}
+
+-(void)testCreateTBrick{
+    STBrickNode* brick = [STBrickNode createTBrick];
+    XCTAssertEqualObjects(brick.description, @"\n0000\n1110\n0100\n0000\n", @"Create T");
+}
+
+-(void)testCreateIBrick{
+    STBrickNode* brick = [STBrickNode createIBrick];
+    XCTAssertEqualObjects(brick.description, @"\n0010\n0010\n0010\n0010\n", @"Create I");
+}
+
+-(void)testRotateRight{
+    STBrickNode* brick = [STBrickNode createLBrick];
+    [brick rotateRight];
+    XCTAssertEqualObjects(brick.description, @"\n0000\n1110\n1000\n0000\n", @"Right rorate");
+}
+
+-(void)testRotateLeft{
+    STBrickNode* brick = [STBrickNode createTBrick];
+    [brick rotateLeft];
+    XCTAssertEqualObjects(brick.description, @"\n0000\n0100\n0110\n0100\n", @"Left rotate");
 }
 
 @end

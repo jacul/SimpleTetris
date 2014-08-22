@@ -34,25 +34,78 @@
 
 /**
  
-    O O O O
+    0 0 0 0
  
-    0 1 O O
+    0 1 0 0
  
-    0 1 O O
+    0 1 0 0
  
-    0 1 1 O
+    0 1 1 0
  */
 +(instancetype)createLBrick;
 
 /**
- shit
+    0 0 0 0
+
+    1 1 1 0
+
+    0 1 0 0
+
+    0 0 0 0
+ */
++(instancetype)createTBrick;
+
+/**
+    0 0 0 0
+ 
+    0 1 0 0
+ 
+    0 1 1 0
+ 
+    0 0 1 0
+ */
++(instancetype)createSBrick;
+
+/**
+    0 0 0 0
+ 
+    0 1 1 0
+ 
+    0 1 1 0
+ 
+    0 0 0 0
+ */
++(instancetype)createDBrick;
+
+/**
+    0 0 1 0
+ 
+    0 0 1 0
+ 
+    0 0 1 0
+ 
+    0 0 1 0
+ */
++(instancetype)createIBrick;
+
+/**
+
+    Rotate the brick to left. Which means all current rows will be new columns from left to right.
  
  */
 
 -(void)rotateLeft;
 
+/**
+ 
+    Rotate the brick to right. Which means all current rows will be new columns from right to left.
+ 
+ */
 -(void)rotateRight;
 
+/*
+    Rotate the brick by either once or twice, to either left or right.
+ */
 -(void)rotateRandom;
 
 @end
