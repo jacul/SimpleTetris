@@ -7,21 +7,49 @@
 //
 
 #import "STViewController.h"
-#import "STGameScene.h"
 
-@implementation STViewController
+#define FPS 10.0
+
+@implementation STViewController{
+    /***
+     Indidates if the game is paused
+     */
+    BOOL gamePaused;
+    
+    /***
+     Speed of the game ,which is the count of the brick moves per second.
+     */
+    int gameSpeed;
+    
+    /***
+     The amount of frames passed within one second.
+     */
+    int accumulatedFrames;
+}
+
+@synthesize gamescene;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.view = [STGameScene new];
-
+    self.gamescene = [STGameScene new];
+    self.view = self.gamescene;
+    
+    //Game starts without being paused
+    gamePaused = NO;
+    
+    //Default 0
+    accumulatedFrames = 0;
+    
+    //Speed default 2
+    gameSpeed = 2;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     if (self.looper==nil) {
-        self.looper = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateEverything) userInfo:nil repeats:YES];
+        //Schedule event at 10 FPS
+        self.looper = [NSTimer scheduledTimerWithTimeInterval: 1.0/FPS target:self selector:@selector(updateEverything) userInfo:nil repeats:YES];
     }
 }
 
@@ -30,11 +58,58 @@
         [self.looper invalidate];
         self.looper = nil;
     }
-
 }
 
+/**
+ Main thread, game logic defined here.
+ */
 -(void)updateEverything{
+    if(!gamePaused){
+        //Game not paused
+        [self handleBricks];
+        
+        //Increament the frame counter
+        accumulatedFrames++;
+        
+        //Redraw the baord
+        [self.gamescene redrawBoard];
+    }
+}
 
+-(void)handleBricks{
+    if (accumulatedFrames * FPS == gameSpeed) {
+        //Time to move that brick!
+        
+        if ([self brickFall]) {
+            //Brick reaches the bottom
+            
+            [self generateNewBrick];
+        }
+        
+        //Check if there is one or more complete lines.
+        [self checkClearLine];
+    }
+    
+}
+
+-(void)checkClearLine{
+    
+}
+
+-(void)generateNewBrick{
+    gamescene.thebrick = [STBrickNode createTBrick];
+    [gamescene.thebrick rotateRandom];
+    gamescene.brickpos = CGPointMake(0, 0);
+}
+
+/**
+ Move the brick down by one unit.
+
+ @return Whether the brick has reached bottom or not.
+ */
+-(BOOL)brickFall{
+    
+    return NO;
 }
 
 - (BOOL)shouldAutorotate

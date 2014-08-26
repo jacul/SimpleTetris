@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "STGameScene.h"
 
-@interface STViewController : UIViewController
+@interface STViewController : UIViewController{
+}
 
 @property (strong, nonatomic) NSTimer* looper;
+@property (strong, nonatomic) STGameScene* gamescene;
 
 @end
