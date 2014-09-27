@@ -66,14 +66,27 @@
 -(void)updateEverything{
     if(!gamePaused){
         //Game not paused
-        [self handleBricks];
         
-        //Increament the frame counter
-        accumulatedFrames++;
-        
-        //Redraw the baord
-        [self.gamescene redrawBoard];
+        if ([self checkGameOver]) {
+            [self handleBricks];
+            
+            //Increament the frame counter
+            accumulatedFrames++;
+            
+            //Redraw the baord
+            [self.gamescene redrawBoard];
+        }else{
+            //game over
+            [self.gamescene showGameOver];
+        }
     }
+}
+
+/**
+ @return YES if the game is over. Otherwise NO.
+ */
+-(BOOL)checkGameOver{
+    return NO;
 }
 
 -(void)handleBricks{
@@ -93,7 +106,7 @@
 }
 
 -(void)checkClearLine{
-    
+
 }
 
 -(void)generateNewBrick{
