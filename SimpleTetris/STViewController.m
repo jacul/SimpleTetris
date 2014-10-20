@@ -46,6 +46,9 @@
     gameSpeed = 2;
 }
 
+/**
+ * When the game is loaded, start the main looper
+ */
 -(void)viewDidAppear:(BOOL)animated{
     if (self.looper==nil) {
         //Schedule event at 10 FPS
@@ -53,6 +56,9 @@
     }
 }
 
+/**
+ * Pause the main looper when the game is stopped
+ */
 -(void)viewDidDisappear:(BOOL)animated{
     if (self.looper && [self.looper isValid]) {
         [self.looper invalidate];
@@ -68,12 +74,13 @@
         //Game not paused
         
         if ([self checkGameOver]) {
+            //Game continues, do all things related to bricks
             [self handleBricks];
             
             //Increament the frame counter
             accumulatedFrames++;
             
-            //Redraw the baord
+            //Redraw the board
             [self.gamescene redrawBoard];
         }else{
             //game over
@@ -89,23 +96,37 @@
     return NO;
 }
 
+/**
+ Brick stuff, including drop the next brick, generate new backups and clear the lined bricks.
+ */
 -(void)handleBricks{
     if (accumulatedFrames * FPS == gameSpeed) {
         //Time to move that brick!
         
         if ([self brickFall]) {
             //Brick reaches the bottom
+            //Check if there is one or more complete lines.
+            [self checkClearLine];
             
             [self generateNewBrick];
         }
         
-        //Check if there is one or more complete lines.
-        [self checkClearLine];
     }
     
 }
 
+/**
+ Check if there is any line full. If so, mark it as "cleared".
+ */
 -(void)checkClearLine{
+    for (int i = gamescene.board.count-1; i>=0; i--) {
+        int line = [[gamescene.board objectAtIndex:i] integerValue];
+        if (line == 0b1111111111) {
+            //full, assume the board's width is 10 for now
+            [gamescene.board setObject:@(0) atIndexedSubscript:i];
+        }
+        
+    }
 
 }
 
@@ -116,9 +137,11 @@
 }
 
 /**
- Move the brick down by one unit.
+ Move all the bricks down.
 
- @return Whether the brick has reached bottom or not.
+ This includes both the single brick and the existing ones, since some of the bricks might be floating due to previous clear.
+
+ @return YES if the brick has reached bottom before move. Otherwise NO.
  */
 -(BOOL)brickFall{
     

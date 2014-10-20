@@ -11,6 +11,12 @@
 
 @property (nonatomic, strong) STBrickNode* thebrick;
 @property (nonatomic, assign) CGPoint brickpos;
+/**
+ board is an array of integers, each one representing one line of the board, and right aligned.
+
+ If the value of a line is -1, it means this line was just cleared.
+ */
+@property (nonatomic, strong) NSMutableArray* board;
 
 #pragma mark - board control
 /**
