@@ -16,6 +16,10 @@
     self = [super init];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
+        self.board_high = 30;
+        self.board_width = 10;
+        
+        self.board = alloca(sizeof(int)* self.board_width);
     }
     return self;
 }

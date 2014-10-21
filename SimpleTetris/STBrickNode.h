@@ -89,6 +89,10 @@
 +(instancetype)createIBrick;
 
 /**
+ Create a random type brick.
+ */
++(instancetype)randomBrick;
+/**
 
     Rotate the brick to left. Which means all current rows will be new columns from left to right.
  

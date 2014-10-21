@@ -47,6 +47,30 @@
     return node;
 }
 
++(instancetype)randomBrick{
+    int type = arc4random() %5;
+    switch (type) {
+        case 0:
+            return [self createDBrick];
+            break;
+        case 1:
+            return [self createIBrick];
+            break;
+        case 2:
+            return [self createLBrick];
+            break;
+        case 3:
+            return [self createSBrick];
+            break;
+        case 4:
+            return [self createTBrick];
+            break;
+        default:
+            break;
+    }
+    return nil;
+}
+
 //TODO: Unit test this funtion
 -(void)rotateRandom{
     int count = arc4random()%3;//result will be one of 0, 1, 2

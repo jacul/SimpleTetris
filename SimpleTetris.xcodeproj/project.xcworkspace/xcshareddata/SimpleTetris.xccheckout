@@ -14,7 +14,7 @@
 		<string>https://github.com/jacul/SimpleTetris.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SimpleTetris.xcodeproj/project.xcworkspace</string>
+	<string>SimpleTetris.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>BC4D77E1701E74585C4452D78DFE53D1ED94BC81</key>

@@ -119,21 +119,25 @@
  Check if there is any line full. If so, mark it as "cleared".
  */
 -(void)checkClearLine{
-    for (int i = gamescene.board.count-1; i>=0; i--) {
-        int line = [[gamescene.board objectAtIndex:i] integerValue];
-        if (line == 0b1111111111) {
-            //full, assume the board's width is 10 for now
-            [gamescene.board setObject:@(0) atIndexedSubscript:i];
+    int full_line = (1 << (gamescene.board_width+1)) -1;
+    for (int i = gamescene.board_high-1; i>=0; i--) {
+        int line = gamescene.board[i];
+        if (line == full_line) {
+            //full
+            gamescene.board[i] = -1;
         }
         
     }
 
 }
 
+/**
+ Generate a new brick
+ */
 -(void)generateNewBrick{
-    gamescene.thebrick = [STBrickNode createTBrick];
+    gamescene.thebrick = [STBrickNode randomBrick];
     [gamescene.thebrick rotateRandom];
-    gamescene.brickpos = CGPointMake(0, 0);
+    gamescene.brickpos = CGPointMake(gamescene.board_width/2, 0);
 }
 
 /**
