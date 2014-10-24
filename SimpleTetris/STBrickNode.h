@@ -6,7 +6,6 @@
 //  Copyright (c) 2014年 jacul. All rights reserved.
 //
 
-
 @interface STBrickNode : NSObject{
     /***
         The block is a 8x8 pixel collection. The two lines on top would be represented by the first byte,
@@ -31,6 +30,12 @@
      */
     Byte blocks[2];
 }
+
+
+/**
+ Position of the free brick, with the anchor set to the left top of the brick.
+ */
+@property (nonatomic, assign) CGPoint pos;
 
 /**
  

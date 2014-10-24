@@ -103,7 +103,7 @@
     if (accumulatedFrames * FPS == gameSpeed) {
         //Time to move that brick!
         
-        if ([self brickFall]) {
+        if (![self brickFall]) {
             //Brick reaches the bottom
             //Check if there is one or more complete lines.
             [self checkClearLine];
@@ -137,7 +137,7 @@
 -(void)generateNewBrick{
     gamescene.thebrick = [STBrickNode randomBrick];
     [gamescene.thebrick rotateRandom];
-    gamescene.brickpos = CGPointMake(gamescene.board_width/2, 0);
+    gamescene.thebrick.pos = CGPointMake(gamescene.board_width/2, 0);
 }
 
 /**
@@ -145,11 +145,27 @@
 
  This includes both the single brick and the existing ones, since some of the bricks might be floating due to previous clear.
 
- @return YES if the brick has reached bottom before move. Otherwise NO.
+ @return YES if the brick moves. Otherwise NO.
  */
 -(BOOL)brickFall{
+    BOOL result = NO;
+    STBrickNode* newbrick = [gamescene.thebrick copy];
+    newbrick.pos = CGPointMake(newbrick.pos.x, newbrick.pos.y+1);
+    result = [gamescene collisionWithBrick:newbrick]; //can't move forward
     
-    return NO;
+    //check other floating bricks, remove the empty lines.
+    int j=gamescene.board_high-1;
+    for (int i = gamescene.board_high-1; i>=0;i--) {
+        
+        gamescene.board[j]=gamescene.board[i];
+        if (gamescene.board[i]!=0) {
+            j--;
+        }
+    }
+    for (; j>=0; j--) {
+        gamescene.board[j] = 0;
+    }
+    return result;
 }
 
 - (BOOL)shouldAutorotate

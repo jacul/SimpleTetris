@@ -69,4 +69,8 @@
     
 }
 
+-(BOOL)collisionWithBrick:(STBrickNode *)brick{
+    return NO;
+}
+
 @end

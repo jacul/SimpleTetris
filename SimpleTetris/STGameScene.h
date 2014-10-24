@@ -25,12 +25,7 @@
 @property (nonatomic, strong) STBrickNode* thebrick;
 
 /**
- Position of the free brick
- */
-@property (nonatomic, assign) CGPoint brickpos;
-
-/**
- board is an array of integers, from bottom to up, each one representing one line of the board, and right aligned.
+ board is an array of integers, from top to bottom, each one representing one line of the board, and right aligned.
 
  If the value of a line is -1, it means this line was just cleared.
  */
@@ -59,5 +54,11 @@
 -(void)rotateBrickRight;
 
 -(void)resetBrickToTop;
+
+/**
+ * Check if the brick collides with other bricks in the board.
+ * @return YES if there is a collision, otherwise NO.
+ */
+-(BOOL)collisionWithBrick:(STBrickNode*)brick;
 
 @end
