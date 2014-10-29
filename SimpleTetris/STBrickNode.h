@@ -117,4 +117,21 @@
  */
 -(void)rotateRandom;
 
+/*
+    Move the brick left by one pixel.
+ */
+-(void)moveBrickLeft;
+
+/*
+    Move the brick right by one pixel.
+ */
+-(void)moveBrickRight;
+
+/*
+    Move the brick down by one pixel.
+ */
+-(void)moveBrickDown;
+
+-(int)pixelOnBoardForX:(int)x Y:(int)y;
+
 @end

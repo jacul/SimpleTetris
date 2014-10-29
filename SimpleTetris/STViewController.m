@@ -73,7 +73,7 @@
     if(!gamePaused){
         //Game not paused
         
-        if ([self checkGameOver]) {
+        if (![self checkGameOver]) {
             //Game continues, do all things related to bricks
             [self handleBricks];
             
@@ -100,36 +100,35 @@
  Brick stuff, including drop the next brick, generate new backups and clear the lined bricks.
  */
 -(void)handleBricks{
-    if (accumulatedFrames * FPS == gameSpeed) {
-        //Time to move that brick!
+    if (accumulatedFrames / FPS == gameSpeed) {
+        //Time to deal with that brick!
+        //Reset frames
+        accumulatedFrames = 0;
         
-        if (![self brickFall]) {
-            //Brick reaches the bottom
-            //Check if there is one or more complete lines.
-            [self checkClearLine];
-            
+        if (gamescene.thebrick == nil) {
+            //Generating a new brick
             [self generateNewBrick];
+            return;
         }
+        
+        if ([gamescene brickReachesBottom]) {
+            //Reaches bottom, add the brick to board
+            gamescene.thebrick = nil;
+            return;
+        }
+        
+        //move down the brick
+        [self brickFall];
+        
+        //Check if there is one or more complete lines.
+        [self.gamescene checkClearLine];
+        
         
     }
     
 }
 
-/**
- Check if there is any line full. If so, mark it as "cleared".
- */
--(void)checkClearLine{
-    int full_line = (1 << (gamescene.board_width+1)) -1;
-    for (int i = gamescene.board_high-1; i>=0; i--) {
-        int line = gamescene.board[i];
-        if (line == full_line) {
-            //full
-            gamescene.board[i] = -1;
-        }
-        
-    }
 
-}
 
 /**
  Generate a new brick
@@ -137,7 +136,8 @@
 -(void)generateNewBrick{
     gamescene.thebrick = [STBrickNode randomBrick];
     [gamescene.thebrick rotateRandom];
-    gamescene.thebrick.pos = CGPointMake(gamescene.board_width/2, 0);
+    [gamescene resetBrickToTop];
+    NSLog(@"%@", gamescene.thebrick);
 }
 
 /**
@@ -145,26 +145,17 @@
 
  This includes both the single brick and the existing ones, since some of the bricks might be floating due to previous clear.
 
- @return YES if the brick moves. Otherwise NO.
  */
 -(BOOL)brickFall{
     BOOL result = NO;
     STBrickNode* newbrick = [gamescene.thebrick copy];
-    newbrick.pos = CGPointMake(newbrick.pos.x, newbrick.pos.y+1);
-    result = [gamescene collisionWithBrick:newbrick]; //can't move forward
-    
-    //check other floating bricks, remove the empty lines.
-    int j=gamescene.board_high-1;
-    for (int i = gamescene.board_high-1; i>=0;i--) {
-        
-        gamescene.board[j]=gamescene.board[i];
-        if (gamescene.board[i]!=0) {
-            j--;
-        }
+    [newbrick moveBrickDown];
+    result = [gamescene checkCollisionWithBrick:newbrick]; //check ability to move forward
+    if (!result) {
+        //No problem to move down
+        [gamescene.thebrick moveBrickDown];
     }
-    for (; j>=0; j--) {
-        gamescene.board[j] = 0;
-    }
+    [gamescene removeEmptyLines];
     return result;
 }
 

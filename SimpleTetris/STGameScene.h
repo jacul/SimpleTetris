@@ -7,7 +7,15 @@
 //
 #import "STBrickNode.h"
 
-@interface STGameScene : UIView
+@interface STGameScene : UIView{
+    
+    /**
+     board is an array of integers, from top to bottom, each one representing one line of the board, and right aligned. One bit per pixel.
+     
+     If the value of a line is -1, it means this line was just cleared.
+     */
+    int* board;
+}
 
 /**
  Height of the board - how many lines of blocks, default 30
@@ -24,13 +32,7 @@
  */
 @property (nonatomic, strong) STBrickNode* thebrick;
 
-/**
- board is an array of integers, from top to bottom, each one representing one line of the board, and right aligned.
-
- If the value of a line is -1, it means this line was just cleared.
- */
-@property (nonatomic, assign) int* board;
-
+@property (readonly) int * board;
 #pragma mark - board control
 /**
  Redraw the board
@@ -39,26 +41,37 @@
 
 -(void)showGameOver;
 
+/**
+ Remove all the pixels, reset the brick position.
+ */
 -(void)resetBoard;
 
 #pragma mark - brick control
 
--(void)moveBrickLeft;
-
--(void)moveBrickRight;
-
--(void)moveBrickDown;
-
--(void)rotateBrickLeft;
-
--(void)rotateBrickRight;
-
+/**
+ Reset the brick's position to the top middle of the board.
+ */
 -(void)resetBrickToTop;
+
+/**
+ * Check if there is any line full. If so, mark it as "cleared".
+ */
+-(void)checkClearLine;
+
+/**
+ Remove the empty lines of the board,
+ */
+-(BOOL)removeEmptyLines;
 
 /**
  * Check if the brick collides with other bricks in the board.
  * @return YES if there is a collision, otherwise NO.
  */
--(BOOL)collisionWithBrick:(STBrickNode*)brick;
+-(BOOL)checkCollisionWithBrick:(STBrickNode*)brick;
+
+/**
+ * @return YES if the brick is on the bottom of the board. Otherwise NO.
+ */
+-(BOOL)brickReachesBottom;
 
 @end

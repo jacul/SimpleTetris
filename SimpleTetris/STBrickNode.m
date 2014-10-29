@@ -10,6 +10,7 @@
 
 @implementation STBrickNode
 
+@synthesize pos;
 
 +(STBrickNode *)createLBrick{
 
@@ -71,6 +72,14 @@
     return nil;
 }
 
+-(id)copy{
+    STBrickNode* nodecopy = [STBrickNode new];
+    nodecopy.pos = self.pos;
+    nodecopy->blocks[0]=self->blocks[0];
+    nodecopy->blocks[1]=self->blocks[1];
+    return nodecopy;
+}
+
 //TODO: Unit test this funtion
 -(void)rotateRandom{
     int count = arc4random()%3;//result will be one of 0, 1, 2
@@ -117,6 +126,19 @@
     blocks[1] = new2;
 }
 
+
+-(void)moveBrickDown{
+    self.pos = CGPointMake(self.pos.x, self.pos.y+1);
+}
+
+-(void)moveBrickLeft{
+    self.pos = CGPointMake(self.pos.x-1, self.pos.y);
+}
+
+-(void)moveBrickRight{
+    self.pos = CGPointMake(self.pos.x+1, self.pos.y);
+}
+
 /**
     Print the brick as ASCII characters. Starting and ending with line breaks.
  */
@@ -134,5 +156,30 @@
     return [NSString stringWithString:des];
 }
 
-
+-(int)pixelOnBoardForX:(int)x Y:(int)y{
+    if (x<pos.x+4 && x>=pos.x && y>=pos.y && y< pos.y+4) {
+        int px = x-pos.x;
+        int py = y-pos.y;
+        int value = 0;
+        switch (py) {
+            case 0:
+                value = blocks[0]>>(7-px) & 1;
+                break;
+            case 1:
+                value = blocks[0]>>(3-px) & 1;
+                break;
+            case 2:
+                value = blocks[1]>>(7-px) & 1;
+                break;
+            case 3:
+                value = blocks[1]>>(3-px) & 1;
+                break;
+            default:
+                break;
+        }
+        return value;
+    }else{
+        return 0;
+    }
+}
 @end
