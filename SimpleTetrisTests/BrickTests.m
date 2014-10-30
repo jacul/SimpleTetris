@@ -64,4 +64,18 @@
     XCTAssertEqualObjects(brick.description, @"\n0000\n0100\n0110\n0100\n", @"Left rotate");
 }
 
+-(void)testPixelOnBoard{
+    STBrickNode* brick = [STBrickNode createIBrick];
+    brick.pos = CGPointMake(2, 3);
+    XCTAssertEqual([brick pixelOnBoardForX:4 Y:3], 1);
+    XCTAssertEqual([brick pixelOnBoardForX:4 Y:4], 1);
+    XCTAssertEqual([brick pixelOnBoardForX:4 Y:5], 1);
+    XCTAssertEqual([brick pixelOnBoardForX:4 Y:6], 1);
+    
+    XCTAssertEqual([brick pixelOnBoardForX:5 Y:3], 0);
+    XCTAssertEqual([brick pixelOnBoardForX:5 Y:4], 0);
+    XCTAssertEqual([brick pixelOnBoardForX:5 Y:5], 0);
+    XCTAssertEqual([brick pixelOnBoardForX:5 Y:6], 0);
+}
+
 @end

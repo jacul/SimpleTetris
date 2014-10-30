@@ -43,8 +43,8 @@
     //Default 0
     accumulatedFrames = 0;
     
-    //Speed default 2
-    gameSpeed = 2;
+    //Speed default 1.5
+    gameSpeed = 1.5;
 }
 
 /**
@@ -101,7 +101,7 @@
  Brick stuff, including drop the next brick, generate new backups and clear the lined bricks.
  */
 -(void)handleBricks{
-    if (FPS / accumulatedFrames == gameSpeed) {
+    if (accumulatedFrames >= FPS / gameSpeed) {
         //Time to deal with that brick!
         //Reset frames
         accumulatedFrames = 0;

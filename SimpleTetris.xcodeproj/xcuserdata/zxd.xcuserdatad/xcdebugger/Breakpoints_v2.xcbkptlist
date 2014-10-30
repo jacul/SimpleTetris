@@ -132,12 +132,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SimpleTetris/STBrickNode.m"
-            timestampString = "436251998.91885"
+            timestampString = "436334978.362754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "-pixelOnBoardForX:Y:"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-rotateRandom"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

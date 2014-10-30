@@ -82,10 +82,11 @@
 
 //TODO: Unit test this funtion
 -(void)rotateRandom{
-    int count = arc4random()%3;//result will be one of 0, 1, 2
+    int count = arc4random()%4;//result will be one of 0, 1, 2, 3
     switch (count) {
         case 0://left rotate twice
             [self rotateLeft];
+            break;
             
         case 1://left rotate once
             [self rotateLeft];
@@ -95,6 +96,8 @@
             [self rotateRight];
             break;
             
+        case 3://doesn't rotate
+            break;
         default:
             break;
     }

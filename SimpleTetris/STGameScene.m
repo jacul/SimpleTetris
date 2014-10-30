@@ -61,7 +61,7 @@
 
 
 -(void)resetBrickToTop{
-    thebrick.pos = CGPointMake(board_width/2, 0);
+    thebrick.pos = CGPointMake((board_width-4)/2, 0);
 }
 
 -(void)showGameOver{
