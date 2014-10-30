@@ -20,7 +20,7 @@
     self = [super init];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
-        self.board_high = 30;
+        self.board_high = 15;
         self.board_width = 10;
         
         self->board = malloc(sizeof(int)* self.board_high);

@@ -37,6 +37,7 @@
     self.view = self.gamescene;
     
     //Game starts without being paused
+    //Maybe to load from the checkpoint in later versions
     gamePaused = NO;
     
     //Default 0
@@ -100,7 +101,7 @@
  Brick stuff, including drop the next brick, generate new backups and clear the lined bricks.
  */
 -(void)handleBricks{
-    if (accumulatedFrames / FPS == gameSpeed) {
+    if (FPS / accumulatedFrames == gameSpeed) {
         //Time to deal with that brick!
         //Reset frames
         accumulatedFrames = 0;
