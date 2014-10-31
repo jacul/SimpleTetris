@@ -163,26 +163,30 @@
     if (x<pos.x+4 && x>=pos.x && y>=pos.y && y< pos.y+4) {
         int px = x-pos.x;
         int py = y-pos.y;
-        int value = 0;
-        switch (py) {
-            case 0:
-                value = blocks[0]>>(7-px) & 1;
-                break;
-            case 1:
-                value = blocks[0]>>(3-px) & 1;
-                break;
-            case 2:
-                value = blocks[1]>>(7-px) & 1;
-                break;
-            case 3:
-                value = blocks[1]>>(3-px) & 1;
-                break;
-            default:
-                break;
-        }
-        return value;
+        return [self pixelOnBrickForX:px Y:py];
     }else{
         return 0;
     }
+}
+
+-(int)pixelOnBrickForX:(int)x Y:(int)y{
+    int value = 0;
+    switch (y) {
+        case 0:
+            value = blocks[0]>>(7-x) & 1;
+            break;
+        case 1:
+            value = blocks[0]>>(3-x) & 1;
+            break;
+        case 2:
+            value = blocks[1]>>(7-x) & 1;
+            break;
+        case 3:
+            value = blocks[1]>>(3-x) & 1;
+            break;
+        default:
+            break;
+    }
+    return value;
 }
 @end

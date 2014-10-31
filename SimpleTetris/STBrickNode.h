@@ -132,6 +132,16 @@
  */
 -(void)moveBrickDown;
 
+/**
+ * Get the value of the pixel of the brick for the corresponding position on board.
+ * @return 1 if the pixel of this position is occupied. Otherwise 0.
+ */
 -(int)pixelOnBoardForX:(int)x Y:(int)y;
+
+/**
+ * Get the value of the pixel of the brick for the pisition.
+ * @return 1 if the pixel on this brick is occupied. Otherwise 0.
+ */
+-(int)pixelOnBrickForX:(int)x Y:(int)y;
 
 @end

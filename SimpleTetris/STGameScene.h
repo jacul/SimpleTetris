@@ -74,4 +74,9 @@
  */
 -(BOOL)brickReachesBottom;
 
+/**
+ * The brick will be fixed onto the board.
+ */
+-(void)stablizeBrick:(STBrickNode*)brick;
+
 @end

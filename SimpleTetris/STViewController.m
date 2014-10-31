@@ -43,8 +43,8 @@
     //Default 0
     accumulatedFrames = 0;
     
-    //Speed default 1.5
-    gameSpeed = 1.5;
+    //Speed default
+    gameSpeed = 2;
 }
 
 /**
@@ -113,13 +113,16 @@
         }
         
         if ([gamescene brickReachesBottom]) {
+            
             //Reaches bottom, add the brick to board
+            [gamescene stablizeBrick:gamescene.thebrick];
             gamescene.thebrick = nil;
             return;
-        }
+        }else{
         
-        //move down the brick
-        [self brickFall];
+            //move down the brick
+            [self brickFall];
+        }
         
         //Check if there is one or more complete lines.
         [self.gamescene checkClearLine];

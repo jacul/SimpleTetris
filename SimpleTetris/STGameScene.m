@@ -61,7 +61,7 @@
 
 
 -(void)resetBrickToTop{
-    thebrick.pos = CGPointMake((board_width-4)/2, 0);
+    thebrick.pos = CGPointMake((board_width-4)/2, -1);
 }
 
 -(void)showGameOver{
@@ -102,11 +102,33 @@
 }
 
 -(BOOL)checkCollisionWithBrick:(STBrickNode *)brick{
+    //Check the pixels of the brick.
+    for (int x=0; x<4; x++) {
+        for (int y=0; y<4; y++) {
+            if ([brick pixelOnBrickForX:x Y:y]==1) {//This pixel is occupied on brick
+                //Then check if this pixel is out of the board
+                if (brick.pos.x+x<0 || brick.pos.x+x >board_width-1 || brick.pos.y + y> board_high-1) {
+                    //Out of board
+                    return YES;
+                }
+                
+                //Check the pixel on the board
+                if ((board[y]>>x & 1) == 1) {
+                    return YES;
+                }
+            }
+        }
+    }
     return NO;
 }
 
 -(BOOL)brickReachesBottom{
-    return NO;
+    STBrickNode* newbrick = [thebrick copy];
+    [newbrick moveBrickDown];
+    return [self checkCollisionWithBrick:newbrick];
 }
 
+-(void)stablizeBrick:(STBrickNode *)brick{
+    
+}
 @end
