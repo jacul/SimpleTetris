@@ -116,6 +116,8 @@
             
             //Reaches bottom, add the brick to board
             [gamescene stablizeBrick:gamescene.thebrick];
+            
+            //Eliminate this brick so that a new one will be generated next round
             gamescene.thebrick = nil;
             return;
         }else{

@@ -113,7 +113,7 @@
                 }
                 
                 //Check the pixel on the board
-                if ((board[y]>>x & 1) == 1) {
+                if ((board[(int)brick.pos.y + y]>> ( board_width -1 - (int)brick.pos.x- x) & 1) == 1) {
                     return YES;
                 }
             }
@@ -129,6 +129,13 @@
 }
 
 -(void)stablizeBrick:(STBrickNode *)brick{
-    
+    for (int x=0; x<4; x++) {
+        for (int y=0; y<4; y++) {
+            if ([brick pixelOnBrickForX:x Y:y] == 1) {
+                board[(int)brick.pos.y+y] |= 1<<(board_width -1 - (int)brick.pos.x - x);
+            }
+        }
+    }
+
 }
 @end
