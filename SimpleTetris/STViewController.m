@@ -45,6 +45,25 @@
     
     //Speed default
     gameSpeed = 2;
+    
+    //Add gesture recognizer
+    //It sucks to create four gesture recognizer
+    //But that's what Apple wants
+    UISwipeGestureRecognizer* swipegesture = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeAction:)];
+    [swipegesture setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.view addGestureRecognizer:swipegesture];
+    
+    swipegesture = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeAction:)];
+    [swipegesture setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:swipegesture];
+    
+    swipegesture = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeAction:)];
+    [swipegesture setDirection:UISwipeGestureRecognizerDirectionUp];
+    [self.view addGestureRecognizer:swipegesture];
+    
+    swipegesture = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeAction:)];
+    [swipegesture setDirection:UISwipeGestureRecognizerDirectionDown];
+    [self.view addGestureRecognizer:swipegesture];
 }
 
 /**
@@ -185,4 +204,23 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)handleSwipeAction:(UISwipeGestureRecognizer*)gesture {
+    switch (gesture.direction) {
+        case UISwipeGestureRecognizerDirectionLeft:
+            [gamescene.thebrick moveBrickLeft];
+            break;
+        case UISwipeGestureRecognizerDirectionRight:
+            [gamescene.thebrick moveBrickRight];
+            break;
+        case UISwipeGestureRecognizerDirectionDown:
+            [gamescene.thebrick moveBrickDown];
+            break;
+        case UISwipeGestureRecognizerDirectionUp:
+            //Swipe up means to rotate
+            [gamescene.thebrick rotateRight];//right?
+            break;
+        default:
+            break;
+    }
+}
 @end
