@@ -128,7 +128,7 @@
         if (gamescene.thebrick == nil) {
             //Generating a new brick
             [self generateNewBrick];
-            return;
+
         }
         
         if ([gamescene brickReachesBottom]) {
@@ -138,9 +138,11 @@
             
             //Eliminate this brick so that a new one will be generated next round
             gamescene.thebrick = nil;
-            return;
-        }else{
+
+        }
         
+        if (![gamescene removeEmptyLines]){
+            //No empty line was removed
             //move down the brick
             [self brickFall];
         }
@@ -173,6 +175,10 @@
  */
 -(BOOL)brickFall{
     BOOL result = NO;
+    if (gamescene.thebrick==nil) {
+        //No brick now
+        return result;
+    }
     STBrickNode* newbrick = [gamescene.thebrick copy];
     [newbrick moveBrickDown];
     result = [gamescene checkCollisionWithBrick:newbrick]; //check ability to move forward
@@ -180,7 +186,6 @@
         //No problem to move down
         [gamescene.thebrick moveBrickDown];
     }
-    [gamescene removeEmptyLines];
     return result;
 }
 

@@ -51,6 +51,10 @@
             [board_ascii appendFormat:@"%i ", boardpixel | brickpixel];
         }
         [board_ascii appendString:@"\n"];
+        if (board[i]==-1) {
+            //This line was cleared and needs animation here
+
+        }
     }
     NSLog(@"%@", board_ascii);
 }
@@ -70,7 +74,8 @@
 
 
 -(void)checkClearLine{
-    int full_line = (1 << (board_width+1)) -1;//Value of a full line
+    NSLog(@"%i", board[board_high-1]);
+    int full_line = (1 << (board_width)) -1;//Value of a full line
     for (int i = board_high-1; i>=0; i--) {//Check from bottom to top
 
         if (board[i] == full_line) {
@@ -89,10 +94,11 @@
     for (int i = board_high-1; i>=0;i--) {
         
         board[j]=board[i];
-        if (board[i]!=0) {
-            j--;
-        }else{
+        if(board[i]==-1){
+
             hasEmpty = YES;
+        }else if (board[i] !=0) {
+            j--;
         }
     }
     for (; j>=0; j--) {
@@ -125,7 +131,22 @@
 -(BOOL)brickReachesBottom{
     STBrickNode* newbrick = [thebrick copy];
     [newbrick moveBrickDown];
-    return [self checkCollisionWithBrick:newbrick];
+    for (int x=0; x<4; x++) {
+        for (int y=0; y<4; y++) {
+            if ([newbrick pixelOnBrickForX:x Y:y]==1) {//This pixel is occupied on brick
+                //Then check if this pixel is out of the board
+                if (newbrick.pos.y + y> board_high-1) {//check with bottom board
+                    //Out of board
+                    return YES;
+                }
+                //Check the pixel on the board
+                if ((board[(int)newbrick.pos.y + y]>> ( board_width -1 - (int)newbrick.pos.x- x) & 1) == 1) {
+                    return YES;
+                }
+            }
+        }
+    }
+    return NO;
 }
 
 -(void)stablizeBrick:(STBrickNode *)brick{
