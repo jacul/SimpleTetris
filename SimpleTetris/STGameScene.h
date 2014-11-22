@@ -65,6 +65,8 @@
 
 /**
  * Check if the brick collides with other bricks in the board.
+ * This method checks the brick against the walls and bottom.
+ *
  * @return YES if there is a collision, otherwise NO.
  */
 -(BOOL)checkCollisionWithBrick:(STBrickNode*)brick;
@@ -79,4 +81,23 @@
  */
 -(void)stablizeBrick:(STBrickNode*)brick;
 
+/**
+ * Move the brick left by one pixel. This action will consider the collision.
+ */
+-(void)moveBrickLeft;
+
+/**
+ * Move right. Check same.
+ */
+-(void)moveBrickRight;
+
+/**
+ * Move down. Check same.
+ */
+-(void)moveBrickDown;
+
+/**
+ * Rotate the brick. Will check the brick collision.
+ */
+-(void)rotateBrick;
 @end

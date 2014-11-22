@@ -45,17 +45,28 @@
     NSMutableString* board_ascii = [NSMutableString new];
     [board_ascii appendFormat:@"\n"];
     for (int i=0; i<board_high; i++) {
-        for (int j=0; j<board_width; j++) {
-            int boardpixel = (board[i]>> (board_width-j-1) & 0x1);
-            int brickpixel = [thebrick pixelOnBoardForX:j Y:i];
-            [board_ascii appendFormat:@"%i ", boardpixel | brickpixel];
-        }
-        [board_ascii appendString:@"\n"];
+        [board_ascii appendString:@"|"];
         if (board[i]==-1) {
             //This line was cleared and needs animation here
-
+            for(int j=0;j<board_width; j++){
+                [board_ascii appendString:@"- "];
+            }
+        }else{
+            for (int j=0; j<board_width; j++) {
+                int boardpixel = (board[i]>> (board_width-j-1) & 0x1);
+                int brickpixel = [thebrick pixelOnBoardForX:j Y:i];
+                [board_ascii appendFormat:@"%@ ", (boardpixel | brickpixel) ? @"@":@" "];
+            }
         }
+        [board_ascii deleteCharactersInRange:NSMakeRange(board_ascii.length-1, 1)];
+        [board_ascii appendString:@"|\n"];
+
     }
+    [board_ascii appendString:@"|"];
+    for(int j=0;j<board_width-1; j++){
+        [board_ascii appendString:@"= "];
+    }
+    [board_ascii appendString:@"=|"];
     NSLog(@"%@", board_ascii);
 }
 
@@ -135,7 +146,7 @@
         for (int y=0; y<4; y++) {
             if ([newbrick pixelOnBrickForX:x Y:y]==1) {//This pixel is occupied on brick
                 //Then check if this pixel is out of the board
-                if (newbrick.pos.y + y> board_high-1) {//check with bottom board
+                if (newbrick.pos.y + y> board_high-1) {//check only left and right board
                     //Out of board
                     return YES;
                 }
@@ -153,10 +164,53 @@
     for (int x=0; x<4; x++) {
         for (int y=0; y<4; y++) {
             if ([brick pixelOnBrickForX:x Y:y] == 1) {
+                //Check pixel of brick
                 board[(int)brick.pos.y+y] |= 1<<(board_width -1 - (int)brick.pos.x - x);
             }
         }
     }
 
+}
+
+#pragma mark Brick movement
+
+-(void)moveBrickLeft{
+    //Create a new brick to check movement
+    STBrickNode* brick = [thebrick copy];
+    [brick moveBrickLeft];
+
+    if (![self checkCollisionWithBrick:brick]){
+        thebrick = brick;
+    }
+}
+
+-(void)moveBrickRight{
+    //Create a new brick to check movement
+    STBrickNode* brick = [thebrick copy];
+    [brick moveBrickRight];
+    
+    if (![self checkCollisionWithBrick:brick]){
+        thebrick = brick;
+    }
+}
+
+-(void)moveBrickDown{
+    //Create a new brick to check movement
+    STBrickNode* brick = [thebrick copy];
+    [brick moveBrickDown];
+    
+    if (![self checkCollisionWithBrick:brick]){
+        thebrick = brick;
+    }
+}
+
+-(void)rotateBrick{
+    //Create a new brick to check rotation
+    STBrickNode* brick = [thebrick copy];
+    [brick rotateRight];
+    
+    if (![self checkCollisionWithBrick:brick]){
+        thebrick = brick;
+    }
 }
 @end

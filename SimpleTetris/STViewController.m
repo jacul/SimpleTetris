@@ -212,17 +212,17 @@
 - (void)handleSwipeAction:(UISwipeGestureRecognizer*)gesture {
     switch (gesture.direction) {
         case UISwipeGestureRecognizerDirectionLeft:
-            [gamescene.thebrick moveBrickLeft];
+            [gamescene moveBrickLeft];
             break;
         case UISwipeGestureRecognizerDirectionRight:
-            [gamescene.thebrick moveBrickRight];
+            [gamescene moveBrickRight];
             break;
         case UISwipeGestureRecognizerDirectionDown:
-            [gamescene.thebrick moveBrickDown];
+            [gamescene moveBrickDown];
             break;
         case UISwipeGestureRecognizerDirectionUp:
             //Swipe up means to rotate
-            [gamescene.thebrick rotateRight];//right?
+            [gamescene rotateBrick];//right?
             break;
         default:
             break;
