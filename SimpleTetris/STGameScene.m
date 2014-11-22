@@ -24,9 +24,7 @@
         self.board_width = 10;
         
         self->board = malloc(sizeof(int)* self.board_high);
-        for (int i=0; i<self.board_high; i++) {
-            self.board[i] = 0;
-        }
+        [self resetBoard];
     }
     return self;
 }
@@ -38,6 +36,10 @@
         self.backgroundColor = [UIColor whiteColor];
     }
     return self;
+}
+
+-(void)dealloc{
+    free(self->board);
 }
 
 -(NSString*)redrawBoard{
@@ -72,7 +74,11 @@
 }
 
 -(void)resetBoard{
+    for (int i=0; i<self.board_high; i++) {
+        self.board[i] = 0;
+    }
     
+    self.thebrick = nil;
 }
 
 
@@ -92,7 +98,7 @@
 }
 
 -(void)checkClearLine{
-    NSLog(@"%i", board[board_high-1]);
+
     int full_line = (1 << (board_width)) -1;//Value of a full line
     for (int i = board_high-1; i>=0; i--) {//Check from bottom to top
 

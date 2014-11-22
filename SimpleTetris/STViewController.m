@@ -64,6 +64,11 @@
     swipegesture = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeAction:)];
     [swipegesture setDirection:UISwipeGestureRecognizerDirectionDown];
     [self.view addGestureRecognizer:swipegesture];
+    
+    //Add a tap gesture recognizer
+    UITapGestureRecognizer* tapgesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleTapAction:)];
+    [tapgesture setNumberOfTapsRequired:2];
+    [self.view addGestureRecognizer:tapgesture];
 }
 
 /**
@@ -211,6 +216,9 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+/**
+ Handles swipe actions. Those actions are for brick movements.
+ */
 - (void)handleSwipeAction:(UISwipeGestureRecognizer*)gesture {
     if (gamePaused || [self checkGameOver]) {
         //Game is over or paused, no movement
@@ -232,6 +240,18 @@
             break;
         default:
             break;
+    }
+}
+
+/**
+ * Handles tap actions. Those actions are for game scene logic: Pause/Resume, or Restart game.
+ */
+-(void)handleTapAction:(UITapGestureRecognizer*)gesture{
+    if (gamePaused) {
+        gamePaused = NO;
+    }
+    if ([self checkGameOver]) {
+        [gamescene resetBoard];
     }
 }
 @end
