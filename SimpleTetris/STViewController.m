@@ -105,6 +105,7 @@
         }else{
             //game over
             [self.gamescene showGameOver];
+            gamePaused = YES;
         }
     }
 }
@@ -113,7 +114,8 @@
  @return YES if the game is over. Otherwise NO.
  */
 -(BOOL)checkGameOver{
-    return NO;
+
+    return [gamescene isGameOver];
 }
 
 /**
@@ -210,6 +212,10 @@
 }
 
 - (void)handleSwipeAction:(UISwipeGestureRecognizer*)gesture {
+    if (gamePaused || [self checkGameOver]) {
+        //Game is over or paused, no movement
+        return;
+    }
     switch (gesture.direction) {
         case UISwipeGestureRecognizerDirectionLeft:
             [gamescene moveBrickLeft];

@@ -36,8 +36,10 @@
 #pragma mark - board control
 /**
  Redraw the board
+ 
+ @return NSString The ASCII representation of the board is returned.
  */
--(void)redrawBoard;
+-(NSString*)redrawBoard;
 
 -(void)showGameOver;
 
@@ -45,6 +47,11 @@
  Remove all the pixels, reset the brick position.
  */
 -(void)resetBoard;
+
+/**
+ * Check if the game is over. Basically check if there is any pixel on first line.
+ */
+-(BOOL)isGameOver;
 
 #pragma mark - brick control
 

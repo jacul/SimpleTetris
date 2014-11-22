@@ -40,7 +40,7 @@
     return self;
 }
 
--(void)redrawBoard{
+-(NSString*)redrawBoard{
     //TODO: Print the board for now, need to draw for real
     NSMutableString* board_ascii = [NSMutableString new];
     [board_ascii appendFormat:@"\n"];
@@ -68,6 +68,7 @@
     }
     [board_ascii appendString:@"=|"];
     NSLog(@"%@", board_ascii);
+    return board_ascii;
 }
 
 -(void)resetBoard{
@@ -80,9 +81,15 @@
 }
 
 -(void)showGameOver{
-    
+    NSString* boardascii = [self redrawBoard];
+    NSRange midrange = NSMakeRange(boardascii.length /2 + board_width - 3, 10);//(boardascii.length / (board_width*2+2) /2 * (board_width*2+2)+board_width+1 - 4, 10)
+    boardascii = [boardascii stringByReplacingCharactersInRange:midrange withString:@"Game Over!"];
+    NSLog(@"%@", boardascii);
 }
 
+-(BOOL)isGameOver{
+    return board[0]!=0;//Something on first line
+}
 
 -(void)checkClearLine{
     NSLog(@"%i", board[board_high-1]);
