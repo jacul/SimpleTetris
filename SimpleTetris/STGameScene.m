@@ -70,7 +70,34 @@
     }
     [board_ascii appendString:@"=|"];
     NSLog(@"%@", board_ascii);
+    [self setNeedsDisplay];
     return board_ascii;
+}
+
+-(void)drawRect:(CGRect)rect{
+    [super drawRect:rect];
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    double screenwidth = self.bounds.size.width;
+    double screenheight = self.bounds.size.height;
+    double bricksize;
+    if (screenheight>screenwidth) {
+        bricksize = 0.8*screenwidth / board_width;
+    }else{
+        bricksize = 0.8*screenheight / board_high;
+    }
+    
+    CGContextSetRGBFillColor(ctx, 0, 1, 0, 1);
+    for (int i=0; i<board_high; i++) {
+        for (int j=0; j<board_width; j++) {
+            int boardpixel = (board[i]>> (board_width-j-1) & 0x1);
+            int brickpixel = [thebrick pixelOnBoardForX:j Y:i];
+            if (boardpixel | brickpixel) {
+                CGRect brickrect = CGRectMake(j*bricksize, i*bricksize, bricksize, bricksize);
+                CGContextFillRect(ctx, brickrect);
+            }
+        }
+    }
+    
 }
 
 -(void)resetBoard{
