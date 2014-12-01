@@ -45,7 +45,7 @@
 -(NSString*)redrawBoard{
     //TODO: Print the board for now, need to draw for real
     NSMutableString* board_ascii = [NSMutableString new];
-    [board_ascii appendFormat:@"\n"];
+    [board_ascii appendFormat:@"%i\n", self.score];
     for (int i=0; i<board_high; i++) {
         [board_ascii appendString:@"|"];
         if (board[i]==-1) {
@@ -104,7 +104,7 @@
     for (int i=0; i<self.board_high; i++) {
         self.board[i] = 0;
     }
-    
+    self.score = 0;
     self.thebrick = nil;
 }
 
@@ -125,17 +125,18 @@
 }
 
 -(void)checkClearLine{
-
+    int count_full = 0;
     int full_line = (1 << (board_width)) -1;//Value of a full line
     for (int i = board_high-1; i>=0; i--) {//Check from bottom to top
 
         if (board[i] == full_line) {
             //full
             board[i] = -1;
+            count_full++;
         }
         
     }
-    
+    self.score += count_full*count_full;
 }
 
 -(BOOL)removeEmptyLines{

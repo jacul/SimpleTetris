@@ -18,6 +18,11 @@
 }
 
 /**
+ * Please try to score overflow
+ */
+@property (nonatomic, assign) int score;
+
+/**
  Height of the board - how many lines of blocks, default 30
  */
 @property (nonatomic, assign) int board_high;
