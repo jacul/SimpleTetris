@@ -69,6 +69,10 @@
     UITapGestureRecognizer* tapgesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleTapAction:)];
     [tapgesture setNumberOfTapsRequired:2];
     [self.view addGestureRecognizer:tapgesture];
+    
+    //Add notification for application entering/leaving background
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
 /**
@@ -89,6 +93,14 @@
         [self.looper invalidate];
         self.looper = nil;
     }
+}
+
+-(void)gameEnterBackground:(NSNotification*)notification{
+    [self viewDidDisappear:NO];
+}
+
+-(void)gameEnterForeground:(NSNotification*)notification{
+    [self viewDidAppear:YES];
 }
 
 /**
@@ -247,9 +259,7 @@
  * Handles tap actions. Those actions are for game scene logic: Pause/Resume, or Restart game.
  */
 -(void)handleTapAction:(UITapGestureRecognizer*)gesture{
-    if (gamePaused) {
-        gamePaused = NO;
-    }
+    gamePaused = !gamePaused;
     if ([self checkGameOver]) {
         [gamescene resetBoard];
     }
